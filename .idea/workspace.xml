@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="06b48d58-f068-4b9e-b35a-1943e8c27178" name="Changes" comment="7">
-      <change afterPath="$PROJECT_DIR$/8.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/NoGUI.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Tkinter.py" afterDir="false" />
+    <list default="true" id="06b48d58-f068-4b9e-b35a-1943e8c27178" name="Changes" comment="Ноу ГУИ">
+      <change beforePath="$PROJECT_DIR$/Tkinter.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tkinter.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/my_database.db" beforeDir="false" afterPath="$PROJECT_DIR$/my_database.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -58,6 +56,7 @@
     "Python.7.executor": "Run",
     "Python.8.executor": "Run",
     "Python.NoGUI.executor": "Run",
+    "Python.Tkinter.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
@@ -91,7 +90,7 @@
       <option name="presentableId" value="Default" />
       <updated>1774335461831</updated>
       <workItem from="1774335462883" duration="2548000" />
-      <workItem from="1774345096548" duration="2607000" />
+      <workItem from="1774345096548" duration="3014000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <option name="closed" value="true" />
@@ -173,7 +172,23 @@
       <option name="project" value="LOCAL" />
       <updated>1774347425829</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Ноу ГУИ">
+      <option name="closed" value="true" />
+      <created>1774347739895</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1774347739896</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Ноу ГУИ">
+      <option name="closed" value="true" />
+      <created>1774347748102</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1774347748102</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -199,7 +214,8 @@
     <MESSAGE value="add new" />
     <MESSAGE value="131313" />
     <MESSAGE value="7" />
-    <option name="LAST_COMMIT_MESSAGE" value="7" />
+    <MESSAGE value="Ноу ГУИ" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ноу ГУИ" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/pract$4B.coverage" NAME="4B Coverage Results" MODIFIED="1774346717145" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -208,6 +224,7 @@
     <SUITE FILE_PATH="coverage/pract$1.coverage" NAME="1 Coverage Results" MODIFIED="1774345968190" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/pract$8.coverage" NAME="8 Coverage Results" MODIFIED="1774347498655" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/pract$4.coverage" NAME="4 Coverage Results" MODIFIED="1774346469628" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/pract$Tkinter.coverage" NAME="Tkinter Coverage Results" MODIFIED="1774348108822" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/pract$4D.coverage" NAME="4D Coverage Results" MODIFIED="1774346973934" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/pract$5C.coverage" NAME="5C Coverage Results" MODIFIED="1774347158002" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/pract$6.coverage" NAME="6 Coverage Results" MODIFIED="1774347254862" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
