@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="06b48d58-f068-4b9e-b35a-1943e8c27178" name="Changes" comment="Ноу ГУИ">
-      <change beforePath="$PROJECT_DIR$/Tkinter.py" beforeDir="false" afterPath="$PROJECT_DIR$/Tkinter.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my_database.db" beforeDir="false" afterPath="$PROJECT_DIR$/my_database.db" afterDir="false" />
-    </list>
+    <list default="true" id="06b48d58-f068-4b9e-b35a-1943e8c27178" name="Changes" comment="ГУИ" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -90,7 +87,7 @@
       <option name="presentableId" value="Default" />
       <updated>1774335461831</updated>
       <workItem from="1774335462883" duration="2548000" />
-      <workItem from="1774345096548" duration="3014000" />
+      <workItem from="1774345096548" duration="3348000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <option name="closed" value="true" />
@@ -188,7 +185,23 @@
       <option name="project" value="LOCAL" />
       <updated>1774347748102</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="ГУИ">
+      <option name="closed" value="true" />
+      <created>1774348151048</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1774348151048</updated>
+    </task>
+    <task id="LOCAL-00014" summary="ГУИ">
+      <option name="closed" value="true" />
+      <created>1774348155414</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1774348155414</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -215,7 +228,8 @@
     <MESSAGE value="131313" />
     <MESSAGE value="7" />
     <MESSAGE value="Ноу ГУИ" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ноу ГУИ" />
+    <MESSAGE value="ГУИ" />
+    <option name="LAST_COMMIT_MESSAGE" value="ГУИ" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/pract$4B.coverage" NAME="4B Coverage Results" MODIFIED="1774346717145" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
