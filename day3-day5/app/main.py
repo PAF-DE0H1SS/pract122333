@@ -10,7 +10,7 @@ from PyQt5 import QtWidgets, QtCore
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self):
         super().__init__()
-        self.db_path = r"W:\pract\day3\db\prackt.db"
+        self.db_path = r"/day3-day5\db\prackt.db"
         self.current_table = "furniture"
         self.setWindowTitle("12 СТУЛЬЕВ")
         self.setGeometry(100, 100, 900, 500)

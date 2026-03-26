@@ -8,7 +8,7 @@ from PyQt5 import QtWidgets
 class AddDialog(QtWidgets.QDialog):
     def __init__(self, parent=None):
         super().__init__(parent)
-        self.db_path = r"W:\pract\day3\db\prackt.db"
+        self.db_path = r"/day3-day5\db\prackt.db"
         self.setWindowTitle("Добавить мебель")
         self.setFixedSize(350, 400)
 

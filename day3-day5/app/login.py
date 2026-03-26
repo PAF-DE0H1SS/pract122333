@@ -11,7 +11,7 @@ import os
 class LoginDialog(QtWidgets.QDialog):
     def __init__(self):
         super().__init__()
-        self.db_path = r"W:\pract\day3\db\prackt.db"
+        self.db_path = r"/day3-day5\db\prackt.db"
         self.setupUi()
 
     def setupUi(self):
