@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="06b48d58-f068-4b9e-b35a-1943e8c27178" name="Changes" comment="Добавление функций подгрузки инфы" />
+    <list default="true" id="06b48d58-f068-4b9e-b35a-1943e8c27178" name="Changes" comment="add all functions" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -128,7 +128,7 @@
       <workItem from="1774432047058" duration="2650000" />
       <workItem from="1774512282393" duration="1237000" />
       <workItem from="1774518088113" duration="3859000" />
-      <workItem from="1774530658697" duration="2236000" />
+      <workItem from="1774530658697" duration="3126000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <option name="closed" value="true" />
@@ -362,7 +362,15 @@
       <option name="project" value="LOCAL" />
       <updated>1774533145423</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="add all functions">
+      <option name="closed" value="true" />
+      <created>1774534334930</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1774534334930</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -404,7 +412,8 @@
     <MESSAGE value="Добавление файлов редактора, добавления и мейна" />
     <MESSAGE value="main" />
     <MESSAGE value="Добавление функций подгрузки инфы" />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавление функций подгрузки инфы" />
+    <MESSAGE value="add all functions" />
+    <option name="LAST_COMMIT_MESSAGE" value="add all functions" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/pract$4B.coverage" NAME="4B Coverage Results" MODIFIED="1774346717145" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />

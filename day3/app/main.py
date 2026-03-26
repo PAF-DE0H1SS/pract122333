@@ -109,7 +109,7 @@ class MainWindow(QtWidgets.QMainWindow):
         hbox.addWidget(btn_refresh)
         vbox.addLayout(hbox)
 
-    def setup_tab3(self)
+    def setup_tab3(self):
         vbox = QtWidgets.QVBoxLayout(self.tab3)
 
         self.table3 = QtWidgets.QTableWidget()
@@ -162,7 +162,7 @@ class MainWindow(QtWidgets.QMainWindow):
                         self.table1.setItem(i, j, QtWidgets.QTableWidgetItem(f"{val} руб"))
                     else:
                         self.table1.setItem(i, j, QtWidgets.QTableWidgetItem(str(val)))
-        except Exception as e
+        except Exception as e:
             QtWidgets.QMessageBox.critical(self, "Ошибка", str(e))
 
     def load_orders(self):
@@ -193,7 +193,7 @@ class MainWindow(QtWidgets.QMainWindow):
                         self.table2.setItem(i, j, QtWidgets.QTableWidgetItem(f"{val} руб"))
                     else:
                         self.table2.setItem(i, j, QtWidgets.QTableWidgetItem(str(val)))
-        except Exception as
+        except Exception as e:
             QtWidgets.QMessageBox.critical(self, "Ошибка", str(e))
 
     def load_clients(self):
@@ -211,7 +211,6 @@ class MainWindow(QtWidgets.QMainWindow):
         except Exception as e:
             QtWidgets.QMessageBox.critical(self, "Ошибка", str(e))
 
-
     def get_selected_id(self, table):
         row = table.currentRow()
         if row >= 0:
@@ -220,12 +219,12 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def add_furniture(self):
         current_dir = os.path.dirname(os.path.abspath(__file__))
-        add_path = os.path.join(current_dir, "add")
+        add_path = os.path.join(current_dir, "add.py")
 
         if os.path.exists(add_path):
             subprocess.Popen([sys.executable, add_path])
         else:
-            QtWidgets.QMessageBox.warning(self, "Ошибка", "Файл не найден")
+            QtWidgets.QMessageBox.warning(self, "Ошибка", "Файл add.py не найден")
 
     def edit_furniture(self):
         record_id = self.get_selected_id(self.table1)
@@ -241,14 +240,14 @@ class MainWindow(QtWidgets.QMainWindow):
             QtWidgets.QMessageBox.warning(self, "Ошибка", "Выберите запись для редактирования")
 
     def delete_furniture(self):
-        row = self.table.currentRow()
+        row = self.table1.currentRow()
         if row >= 0:
-            code = self.table.item(row, 0).text()
+            code = self.table1.item(row, 0).text()
             if QtWidgets.QMessageBox.question(self, "Удалить", "Удалить?") == QtWidgets.QMessageBox.Yes:
                 try:
                     conn = sqlite3.connect(self.db_path)
                     cur = conn.cursor()
-                    cur.execute("DELETE FROM furnitur WHERE product_code=?", (code,))
+                    cur.execute("DELETE FROM furniture WHERE product_code=?", (code,))
                     conn.commit()
                     conn.close()
                     self.load_furniture()
@@ -265,7 +264,7 @@ class MainWindow(QtWidgets.QMainWindow):
         try:
             conn = sqlite3.connect(self.db_path)
             cur = conn.cursor()
-            cur.execute("SLECT client_id, last_name||' '||first_name FROM clients")
+            cur.execute("SELECT client_id, last_name||' '||first_name FROM clients")
             clients = cur.fetchall()
             cur.execute("SELECT product_code, name FROM furniture")
             goods = cur.fetchall()
@@ -288,7 +287,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
         discount = QtWidgets.QDoubleSpinBox()
         discount.setMaximum(100)
-        discount.setSuffix()
+        discount.setSuffix("%")
 
         layout.addRow("Клиент:", client)
         layout.addRow("Товар:", furniture)
@@ -328,7 +327,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def delete_order(self):
         row = self.table2.currentRow()
-        if row > 0:
+        if row >= 0:
             oid = self.table2.item(row, 0).text()
             if QtWidgets.QMessageBox.question(self, "Удалить", "Удалить?") == QtWidgets.QMessageBox.Yes:
                 try:
@@ -389,7 +388,7 @@ class MainWindow(QtWidgets.QMainWindow):
                 QtWidgets.QMessageBox.warning(self, "Ошибка", "Файл edit.py не найден")
         else:
             QtWidgets.QMessageBox.warning(self, "Ошибка", "Выберите запись для редактирования")
-# Если вы это проверчете, скажите мне в пятницу - авокадо
+
     def delete_client(self):
         row = self.table3.currentRow()
         if row >= 0:
@@ -406,7 +405,7 @@ class MainWindow(QtWidgets.QMainWindow):
                     QtWidgets.QMessageBox.critical(self, "Ошибка", str(e))
 
 
-if __name__ == "__main__"
+if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
     win = MainWindow()
     win.show()
