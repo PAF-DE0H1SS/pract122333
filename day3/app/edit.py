@@ -8,10 +8,10 @@ from PyQt5 import QtWidgets
 class EditDialog(QtWidgets.QDialog):
     def __init__(self, table_name, record_id, parent=None):
         super().__init__(parent)
-        self.db_path = "W:\pract\day3\db\prackt.db"
+        self.db_path = r"W:\pract\day3\db\prackt.db"
         self.table_name = table_name
         self.record_id = record_id
-        self.setWindowTitle("Редактировать - {table_name}")
+        self.setWindowTitle(f"Редактировать - {table_name}")
         self.setFixedSize(400, 450)
 
         self.load_data()
@@ -22,16 +22,16 @@ class EditDialog(QtWidgets.QDialog):
             conn = sqlite3.connect(self.db_path)
             cur = conn.cursor()
 
-            if self.table_name == "furnitur":
+            if self.table_name == "furniture":
                 cur.execute(
                     "SELECT name, type, country, items_count, material, color, price FROM furniture WHERE product_code=?",
                     (self.record_id,))
                 self.data = cur.fetchone()
-            elif self.table_name == "order":
+            elif self.table_name == "orders":
                 cur.execute("SELECT client_id, product_code, order_date, discount_percent FROM orders WHERE order_id=?",
                             (self.record_id,))
                 self.data = cur.fetchone()
-            elif self.table_name == "client":
+            elif self.table_name == "clients":
                 cur.execute("SELECT last_name, first_name, middle_name, address, city FROM clients WHERE client_id=?",
                             (self.record_id,))
                 self.data = cur.fetchone()
@@ -133,13 +133,13 @@ class EditDialog(QtWidgets.QDialog):
         for i, c in enumerate(self.clients):
             if c[0] == client_id:
                 return i
-        return
+        return 0
 
     def find_furniture_index(self, product_code):
         for i, f in enumerate(self.goods):
             if f[0] == product_code:
                 return i
-        return
+        return 0
 
     def save(self):
         try:
@@ -156,7 +156,7 @@ class EditDialog(QtWidgets.QDialog):
                                 material=?,
                                 color=?,
                                 price=?
-                            WHERE product_code = ?,
+                            WHERE product_code = ?
                             """, (self.name.text(), self.type_cb.currentText(), self.country.text(),
                                   self.items.value(), self.material.text(), self.color.text(),
                                   self.price.value(), self.record_id))
@@ -167,7 +167,7 @@ class EditDialog(QtWidgets.QDialog):
                             SET client_id=?,
                                 product_code=?,
                                 order_date=?,
-                                discount_percent=?,
+                                discount_percent=?
                             WHERE order_id = ?
                             """, (self.client.currentData(), self.furniture.currentData(),
                                   self.date.date().toString("yyyy-MM-dd"), self.discount.value(), self.record_id))
@@ -179,7 +179,7 @@ class EditDialog(QtWidgets.QDialog):
                                 first_name=?,
                                 middle_name=?,
                                 address=?,
-                                city=?,
+                                city=?
                             WHERE client_id = ?
                             """, (self.last.text(), self.first.text(), self.middle.text(),
                                   self.addr.text(), self.city.text(), self.record_id))
