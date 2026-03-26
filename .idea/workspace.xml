@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="06b48d58-f068-4b9e-b35a-1943e8c27178" name="Changes" comment="Создание программы логирования и привязка к бд. Редактирование прошлого файла бд.">
+    <list default="true" id="06b48d58-f068-4b9e-b35a-1943e8c27178" name="Changes" comment="Добавление файлов редактора, добавления и мейна">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/day3/app/edit.py" beforeDir="false" afterPath="$PROJECT_DIR$/day3/app/edit.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/day3/app/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/day3/app/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/day3/db/prackt.db" beforeDir="false" afterPath="$PROJECT_DIR$/day3/db/prackt.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,6 +75,8 @@
     "Python.8.executor": "Run",
     "Python.NoGUI.executor": "Run",
     "Python.Tkinter.executor": "Run",
+    "Python.add.executor": "Run",
+    "Python.edit.executor": "Run",
     "Python.login.executor": "Run",
     "Python.main.executor": "Run",
     "Python.program.executor": "Run",
@@ -130,7 +132,7 @@
       <workItem from="1774432047058" duration="2650000" />
       <workItem from="1774512282393" duration="1237000" />
       <workItem from="1774518088113" duration="3859000" />
-      <workItem from="1774530658697" duration="691000" />
+      <workItem from="1774530658697" duration="1381000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <option name="closed" value="true" />
@@ -340,7 +342,15 @@
       <option name="project" value="LOCAL" />
       <updated>1774530996360</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Добавление файлов редактора, добавления и мейна">
+      <option name="closed" value="true" />
+      <created>1774531451701</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1774531451701</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -379,7 +389,8 @@
     <MESSAGE value="/" />
     <MESSAGE value="Перенос файлов бд с отдельную папку" />
     <MESSAGE value="Создание программы логирования и привязка к бд. Редактирование прошлого файла бд." />
-    <option name="LAST_COMMIT_MESSAGE" value="Создание программы логирования и привязка к бд. Редактирование прошлого файла бд." />
+    <MESSAGE value="Добавление файлов редактора, добавления и мейна" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавление файлов редактора, добавления и мейна" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/pract$4B.coverage" NAME="4B Coverage Results" MODIFIED="1774346717145" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -388,17 +399,19 @@
     <SUITE FILE_PATH="coverage/pract$1.coverage" NAME="1 Coverage Results" MODIFIED="1774345968190" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/pract$tovar.coverage" NAME="tovar Coverage Results" MODIFIED="1774531354660" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="D:/user/Desktop/УП13/3_DataBase/Пример_Приложение_Обувь" />
     <SUITE FILE_PATH="coverage/pract$8.coverage" NAME="8 Coverage Results" MODIFIED="1774347498655" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/pract$login.coverage" NAME="login Coverage Results" MODIFIED="1774530893644" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/day3/app" />
+    <SUITE FILE_PATH="coverage/pract$login.coverage" NAME="login Coverage Results" MODIFIED="1774531885678" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/day3/app" />
     <SUITE FILE_PATH="coverage/pract$4.coverage" NAME="4 Coverage Results" MODIFIED="1774346469628" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/pract$Tkinter.coverage" NAME="Tkinter Coverage Results" MODIFIED="1774348108822" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/pract$4D.coverage" NAME="4D Coverage Results" MODIFIED="1774346973934" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/pract$5C.coverage" NAME="5C Coverage Results" MODIFIED="1774347158002" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/pract$6.coverage" NAME="6 Coverage Results" MODIFIED="1774347254862" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/pract$edit.coverage" NAME="edit Coverage Results" MODIFIED="1774531626475" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/day3/app" />
     <SUITE FILE_PATH="coverage/pract$NoGUI.coverage" NAME="NoGUI Coverage Results" MODIFIED="1774347721968" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/pract$main.coverage" NAME="main Coverage Results" MODIFIED="1774531196885" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="D:/user/Desktop/УП13/3_DataBase/Пример_Приложение_Обувь" />
+    <SUITE FILE_PATH="coverage/pract$main.coverage" NAME="main Coverage Results" MODIFIED="1774532001670" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/day3/app" />
     <SUITE FILE_PATH="coverage/pract$3.coverage" NAME="3 Coverage Results" MODIFIED="1774346359693" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/pract$4C.coverage" NAME="4C Coverage Results" MODIFIED="1774346912005" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/pract$program.coverage" NAME="program Coverage Results" MODIFIED="1774531279658" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="D:/user/Desktop/УП13/3_DataBase/Пример_Приложение_Обувь" />
+    <SUITE FILE_PATH="coverage/pract$add.coverage" NAME="add Coverage Results" MODIFIED="1774531495608" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/day3/app" />
+    <SUITE FILE_PATH="coverage/pract$program.coverage" NAME="program Coverage Results" MODIFIED="1774531360452" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="D:/user/Desktop/УП13/3_DataBase/Пример_Приложение_Обувь" />
     <SUITE FILE_PATH="coverage/pract$5.coverage" NAME="5 Coverage Results" MODIFIED="1774346543049" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/pract$5A.coverage" NAME="5A Coverage Results" MODIFIED="1774347042703" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/pract$2.coverage" NAME="2 Coverage Results" MODIFIED="1774346307096" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
