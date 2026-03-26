@@ -7,7 +7,7 @@ from PyQt5.QtWidgets import QMessageBox
 import subprocess
 import os
 
-
+# admin \ 123
 class LoginDialog(QtWidgets.QDialog):
     def __init__(self):
         super().__init__()
