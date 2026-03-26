@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourcePerFileMappings">
-    <file url="file://$PROJECT_DIR$/zapros1.sql" value="1971f7b5-59cd-4100-a3e6-6f6d05405f48" />
-    <file url="file://$PROJECT_DIR$/zapros10.sql" value="1971f7b5-59cd-4100-a3e6-6f6d05405f48" />
-    <file url="file://$PROJECT_DIR$/zapros2.sql" value="1971f7b5-59cd-4100-a3e6-6f6d05405f48" />
-    <file url="file://$PROJECT_DIR$/zapros3.sql" value="1971f7b5-59cd-4100-a3e6-6f6d05405f48" />
-    <file url="file://$PROJECT_DIR$/zapros4.sql" value="1971f7b5-59cd-4100-a3e6-6f6d05405f48" />
-    <file url="file://$PROJECT_DIR$/zapros5.sql" value="1971f7b5-59cd-4100-a3e6-6f6d05405f48" />
-    <file url="file://$PROJECT_DIR$/zapros6.sql" value="1971f7b5-59cd-4100-a3e6-6f6d05405f48" />
-    <file url="file://$PROJECT_DIR$/zapros7.sql" value="1971f7b5-59cd-4100-a3e6-6f6d05405f48" />
-    <file url="file://$PROJECT_DIR$/zapros8.sql" value="1971f7b5-59cd-4100-a3e6-6f6d05405f48" />
-    <file url="file://$PROJECT_DIR$/zapros9.sql" value="1971f7b5-59cd-4100-a3e6-6f6d05405f48" />
+    <file url="file://$PROJECT_DIR$/day3/db/zapros1.sql" value="1971f7b5-59cd-4100-a3e6-6f6d05405f48" />
+    <file url="file://$PROJECT_DIR$/day3/db/zapros10.sql" value="1971f7b5-59cd-4100-a3e6-6f6d05405f48" />
+    <file url="file://$PROJECT_DIR$/day3/db/zapros2.sql" value="1971f7b5-59cd-4100-a3e6-6f6d05405f48" />
+    <file url="file://$PROJECT_DIR$/day3/db/zapros3.sql" value="1971f7b5-59cd-4100-a3e6-6f6d05405f48" />
+    <file url="file://$PROJECT_DIR$/day3/db/zapros4.sql" value="1971f7b5-59cd-4100-a3e6-6f6d05405f48" />
+    <file url="file://$PROJECT_DIR$/day3/db/zapros5.sql" value="1971f7b5-59cd-4100-a3e6-6f6d05405f48" />
+    <file url="file://$PROJECT_DIR$/day3/db/zapros6.sql" value="1971f7b5-59cd-4100-a3e6-6f6d05405f48" />
+    <file url="file://$PROJECT_DIR$/day3/db/zapros7.sql" value="1971f7b5-59cd-4100-a3e6-6f6d05405f48" />
+    <file url="file://$PROJECT_DIR$/day3/db/zapros8.sql" value="1971f7b5-59cd-4100-a3e6-6f6d05405f48" />
+    <file url="file://$PROJECT_DIR$/day3/db/zapros9.sql" value="1971f7b5-59cd-4100-a3e6-6f6d05405f48" />
   </component>
 </project>
