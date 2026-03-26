@@ -210,3 +210,204 @@ class MainWindow(QtWidgets.QMainWindow):
                     self.table3.setItem(i, j, QtWidgets.QTableWidgetItem(str(val if val else "")))
         except Exception as e:
             QtWidgets.QMessageBox.critical(self, "Ошибка", str(e))
+
+
+    def get_selected_id(self, table):
+        row = table.currentRow()
+        if row >= 0:
+            return table.item(row, 0).text()
+        return None
+
+    def add_furniture(self):
+        current_dir = os.path.dirname(os.path.abspath(__file__))
+        add_path = os.path.join(current_dir, "add")
+
+        if os.path.exists(add_path):
+            subprocess.Popen([sys.executable, add_path])
+        else:
+            QtWidgets.QMessageBox.warning(self, "Ошибка", "Файл не найден")
+
+    def edit_furniture(self):
+        record_id = self.get_selected_id(self.table1)
+        if record_id:
+            current_dir = os.path.dirname(os.path.abspath(__file__))
+            edit_path = os.path.join(current_dir, "edit.py")
+
+            if os.path.exists(edit_path):
+                subprocess.Popen([sys.executable, edit_path, "furniture", record_id])
+            else:
+                QtWidgets.QMessageBox.warning(self, "Ошибка", "Файл edit.py не найден")
+        else:
+            QtWidgets.QMessageBox.warning(self, "Ошибка", "Выберите запись для редактирования")
+
+    def delete_furniture(self):
+        row = self.table.currentRow()
+        if row >= 0:
+            code = self.table.item(row, 0).text()
+            if QtWidgets.QMessageBox.question(self, "Удалить", "Удалить?") == QtWidgets.QMessageBox.Yes:
+                try:
+                    conn = sqlite3.connect(self.db_path)
+                    cur = conn.cursor()
+                    cur.execute("DELETE FROM furnitur WHERE product_code=?", (code,))
+                    conn.commit()
+                    conn.close()
+                    self.load_furniture()
+                except Exception as e:
+                    QtWidgets.QMessageBox.critical(self, "Ошибка", str(e))
+
+    def add_order(self):
+        dlg = QtWidgets.QDialog(self)
+        dlg.setWindowTitle("Добавить заказ")
+        dlg.setModal(True)
+
+        layout = QtWidgets.QFormLayout(dlg)
+
+        try:
+            conn = sqlite3.connect(self.db_path)
+            cur = conn.cursor()
+            cur.execute("SLECT client_id, last_name||' '||first_name FROM clients")
+            clients = cur.fetchall()
+            cur.execute("SELECT product_code, name FROM furniture")
+            goods = cur.fetchall()
+            conn.close()
+        except Exception as e:
+            QtWidgets.QMessageBox.critical(self, "Ошибка", str(e))
+            return
+
+        client = QtWidgets.QComboBox()
+        for c in clients:
+            client.addItem(c[1], c[0])
+
+        furniture = QtWidgets.QComboBox()
+        for f in goods:
+            furniture.addItem(f[1], f[0])
+
+        date = QtWidgets.QDateEdit()
+        date.setCalendarPopup(True)
+        date.setDate(QtCore.QDate.currentDate())
+
+        discount = QtWidgets.QDoubleSpinBox()
+        discount.setMaximum(100)
+        discount.setSuffix()
+
+        layout.addRow("Клиент:", client)
+        layout.addRow("Товар:", furniture)
+        layout.addRow("Дата:", date)
+        layout.addRow("Скидка:", discount)
+
+        btns = QtWidgets.QDialogButtonBox(QtWidgets.QDialogButtonBox.Ok | QtWidgets.QDialogButtonBox.Cancel)
+        btns.accepted.connect(dlg.accept)
+        btns.rejected.connect(dlg.reject)
+        layout.addRow(btns)
+
+        if dlg.exec_():
+            try:
+                conn = sqlite3.connect(self.db_path)
+                cur = conn.cursor()
+                cur.execute("INSERT INTO orders (client_id,product_code,order_date,discount_percent) VALUES (?,?,?,?)",
+                            (client.currentData(), furniture.currentData(), date.date().toString("yyyy-MM-dd"),
+                             discount.value()))
+                conn.commit()
+                conn.close()
+                self.load_orders()
+            except Exception as e:
+                QtWidgets.QMessageBox.critical(self, "Ошибка", str(e))
+
+    def edit_order(self):
+        record_id = self.get_selected_id(self.table2)
+        if record_id:
+            current_dir = os.path.dirname(os.path.abspath(__file__))
+            edit_path = os.path.join(current_dir, "edit.py")
+
+            if os.path.exists(edit_path):
+                subprocess.Popen([sys.executable, edit_path, "orders", record_id])
+            else:
+                QtWidgets.QMessageBox.warning(self, "Ошибка", "Файл edit.py не найден")
+        else:
+            QtWidgets.QMessageBox.warning(self, "Ошибка", "Выберите запись для редактирования")
+
+    def delete_order(self):
+        row = self.table2.currentRow()
+        if row > 0:
+            oid = self.table2.item(row, 0).text()
+            if QtWidgets.QMessageBox.question(self, "Удалить", "Удалить?") == QtWidgets.QMessageBox.Yes:
+                try:
+                    conn = sqlite3.connect(self.db_path)
+                    cur = conn.cursor()
+                    cur.execute("DELETE FROM orders WHERE order_id=?", (oid,))
+                    conn.commit()
+                    conn.close()
+                    self.load_orders()
+                except Exception as e:
+                    QtWidgets.QMessageBox.critical(self, "Ошибка", str(e))
+
+    def add_client(self):
+        dlg = QtWidgets.QDialog(self)
+        dlg.setWindowTitle("Добавить клиента")
+        dlg.setModal(True)
+
+        layout = QtWidgets.QFormLayout(dlg)
+
+        last = QtWidgets.QLineEdit()
+        first = QtWidgets.QLineEdit()
+        middle = QtWidgets.QLineEdit()
+        addr = QtWidgets.QLineEdit()
+        city = QtWidgets.QLineEdit()
+
+        layout.addRow("Фамилия:", last)
+        layout.addRow("Имя:", first)
+        layout.addRow("Отчество:", middle)
+        layout.addRow("Адрес:", addr)
+        layout.addRow("Город:", city)
+
+        btns = QtWidgets.QDialogButtonBox(QtWidgets.QDialogButtonBox.Ok | QtWidgets.QDialogButtonBox.Cancel)
+        btns.accepted.connect(dlg.accept)
+        btns.rejected.connect(dlg.reject)
+        layout.addRow(btns)
+
+        if dlg.exec_():
+            try:
+                conn = sqlite3.connect(self.db_path)
+                cur = conn.cursor()
+                cur.execute("INSERT INTO clients (last_name,first_name,middle_name,address,city) VALUES (?,?,?,?,?)",
+                            (last.text(), first.text(), middle.text(), addr.text(), city.text()))
+                conn.commit()
+                conn.close()
+                self.load_clients()
+            except Exception as e:
+                QtWidgets.QMessageBox.critical(self, "Ошибка", str(e))
+
+    def edit_client(self):
+        record_id = self.get_selected_id(self.table3)
+        if record_id:
+            current_dir = os.path.dirname(os.path.abspath(__file__))
+            edit_path = os.path.join(current_dir, "edit.py")
+
+            if os.path.exists(edit_path):
+                subprocess.Popen([sys.executable, edit_path, "clients", record_id])
+            else:
+                QtWidgets.QMessageBox.warning(self, "Ошибка", "Файл edit.py не найден")
+        else:
+            QtWidgets.QMessageBox.warning(self, "Ошибка", "Выберите запись для редактирования")
+# Если вы это проверчете, скажите мне в пятницу - авокадо
+    def delete_client(self):
+        row = self.table3.currentRow()
+        if row >= 0:
+            cid = self.table3.item(row, 0).text()
+            if QtWidgets.QMessageBox.question(self, "Удалить", "Удалить?") == QtWidgets.QMessageBox.Yes:
+                try:
+                    conn = sqlite3.connect(self.db_path)
+                    cur = conn.cursor()
+                    cur.execute("DELETE FROM clients WHERE client_id=?", (cid,))
+                    conn.commit()
+                    conn.close()
+                    self.load_clients()
+                except Exception as e:
+                    QtWidgets.QMessageBox.critical(self, "Ошибка", str(e))
+
+
+if __name__ == "__main__"
+    app = QtWidgets.QApplication(sys.argv)
+    win = MainWindow()
+    win.show()
+    sys.exit(app.exec_())
