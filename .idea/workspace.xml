@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="06b48d58-f068-4b9e-b35a-1943e8c27178" name="Changes" comment="add all functions" />
+    <list default="true" id="06b48d58-f068-4b9e-b35a-1943e8c27178" name="Changes" comment="add and fix - add.py" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -128,7 +128,7 @@
       <workItem from="1774432047058" duration="2650000" />
       <workItem from="1774512282393" duration="1237000" />
       <workItem from="1774518088113" duration="3859000" />
-      <workItem from="1774530658697" duration="3126000" />
+      <workItem from="1774530658697" duration="3475000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <option name="closed" value="true" />
@@ -370,7 +370,31 @@
       <option name="project" value="LOCAL" />
       <updated>1774534334930</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="fix  err">
+      <option name="closed" value="true" />
+      <created>1774534448340</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1774534448340</updated>
+    </task>
+    <task id="LOCAL-00032" summary="add - add.py">
+      <option name="closed" value="true" />
+      <created>1774534624068</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1774534624068</updated>
+    </task>
+    <task id="LOCAL-00033" summary="add and fix - add.py">
+      <option name="closed" value="true" />
+      <created>1774534684588</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1774534684588</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -388,9 +412,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="1" />
-    <MESSAGE value="add commend" />
-    <MESSAGE value="2.py" />
     <MESSAGE value="add 3" />
     <MESSAGE value="add xxxxxxxx" />
     <MESSAGE value="add new" />
@@ -413,7 +434,10 @@
     <MESSAGE value="main" />
     <MESSAGE value="Добавление функций подгрузки инфы" />
     <MESSAGE value="add all functions" />
-    <option name="LAST_COMMIT_MESSAGE" value="add all functions" />
+    <MESSAGE value="fix  err" />
+    <MESSAGE value="add - add.py" />
+    <MESSAGE value="add and fix - add.py" />
+    <option name="LAST_COMMIT_MESSAGE" value="add and fix - add.py" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/pract$4B.coverage" NAME="4B Coverage Results" MODIFIED="1774346717145" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -430,7 +454,7 @@
     <SUITE FILE_PATH="coverage/pract$6.coverage" NAME="6 Coverage Results" MODIFIED="1774347254862" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/pract$edit.coverage" NAME="edit Coverage Results" MODIFIED="1774531626475" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/day3/app" />
     <SUITE FILE_PATH="coverage/pract$NoGUI.coverage" NAME="NoGUI Coverage Results" MODIFIED="1774347721968" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/pract$main.coverage" NAME="main Coverage Results" MODIFIED="1774532001670" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/day3/app" />
+    <SUITE FILE_PATH="coverage/pract$main.coverage" NAME="main Coverage Results" MODIFIED="1774534344588" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/day3/app" />
     <SUITE FILE_PATH="coverage/pract$3.coverage" NAME="3 Coverage Results" MODIFIED="1774346359693" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/pract$4C.coverage" NAME="4C Coverage Results" MODIFIED="1774346912005" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/pract$add.coverage" NAME="add Coverage Results" MODIFIED="1774531495608" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/day3/app" />
