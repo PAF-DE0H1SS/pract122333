@@ -8,7 +8,7 @@ from PyQt5 import QtWidgets
 class AddDialog(QtWidgets.QDialog):
     def __init__(self, parent=None):
         super().__init__(parent)
-        self.db_path = "W:/pract/day3t/db/prackt.db"
+        self.db_path = r"W:\pract\day3\db\prackt.db"
         self.setWindowTitle("Добавить мебель")
         self.setFixedSize(350, 400)
 
@@ -38,7 +38,7 @@ class AddDialog(QtWidgets.QDialog):
         btns.rejected.connect(self.reject)
         layout.addRow(btns)
 
-    def save(self)
+    def save(self):
         if not self.name.text():
             QtWidgets.QMessageBox.warning(self, "Ошибка", "Введите название")
             return
@@ -54,7 +54,7 @@ class AddDialog(QtWidgets.QDialog):
             conn.commit()
             conn.close()
             self.accept()
-        except Exception as e
+        except Exception as e:
             QtWidgets.QMessageBox.critical(self, "Ошибка", str(e))
 
 
@@ -62,4 +62,4 @@ if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
     dlg = AddDialog()
     dlg.show()
-    sys.exit(app.exec_()
+    sys.exit(app.exec_())
