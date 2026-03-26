@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="06b48d58-f068-4b9e-b35a-1943e8c27178" name="Changes" comment="Добавление файлов редактора, добавления и мейна">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/day3/app/edit.py" beforeDir="false" afterPath="$PROJECT_DIR$/day3/app/edit.py" afterDir="false" />
+    <list default="true" id="06b48d58-f068-4b9e-b35a-1943e8c27178" name="Changes" comment="main">
       <change beforePath="$PROJECT_DIR$/day3/app/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/day3/app/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
