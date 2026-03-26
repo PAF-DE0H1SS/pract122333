@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="SqlDialectMappings">
-    <file url="file://$PROJECT_DIR$/day3/zp1.sql" dialect="SQLite" />
-    <file url="file://$PROJECT_DIR$/day3/zp2.sql" dialect="SQLite" />
+    <file url="file://D:/user/Desktop/linda.sql" dialect="SQLite" />
+    <file url="file://$PROJECT_DIR$/zapros1.sql" dialect="SQLite" />
+    <file url="file://$PROJECT_DIR$/zapros10.sql" dialect="SQLite" />
+    <file url="file://$PROJECT_DIR$/zapros2.sql" dialect="SQLite" />
+    <file url="file://$PROJECT_DIR$/zapros3.sql" dialect="SQLite" />
+    <file url="file://$PROJECT_DIR$/zapros4.sql" dialect="SQLite" />
+    <file url="file://$PROJECT_DIR$/zapros5.sql" dialect="SQLite" />
+    <file url="file://$PROJECT_DIR$/zapros6.sql" dialect="SQLite" />
+    <file url="file://$PROJECT_DIR$/zapros7.sql" dialect="SQLite" />
+    <file url="file://$PROJECT_DIR$/zapros8.sql" dialect="SQLite" />
+    <file url="file://$PROJECT_DIR$/zapros9.sql" dialect="SQLite" />
   </component>
 </project>
