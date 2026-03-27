@@ -8,7 +8,7 @@ from PyQt5 import QtWidgets
 class EditDialog(QtWidgets.QDialog):
     def __init__(self, table_name, record_id, parent=None):
         super().__init__(parent)
-        self.db_path = r"/day3-day5\db\prackt.db"
+        self.db_path = r"W:\pract\day3-day5\db\prackt.db"
         self.table_name = table_name
         self.record_id = record_id
         self.setWindowTitle(f"Редактировать - {table_name}")

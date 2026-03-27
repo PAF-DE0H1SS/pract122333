@@ -7,18 +7,21 @@ from PyQt5.QtWidgets import QMessageBox
 import subprocess
 import os
 
+
 # admin \ 123
 class LoginDialog(QtWidgets.QDialog):
     def __init__(self):
         super().__init__()
-        self.db_path = r"/day3-day5\db\prackt.db"
+        self.db_path = r"W:\pract\day3-day5\db\prackt.db"
         self.setupUi()
 
     def setupUi(self):
         self.setWindowTitle("12 СТУЛЬЕВ - Авторизация")
         self.setFixedSize(350, 200)
 
-        self.setWindowIcon(QtGui.QIcon())
+        icon_path =r"W:\pract\day3-day5\app\icon\icon.png"
+        if os.path.exists(icon_path):
+            self.setWindowIcon(QtGui.QIcon(icon_path))
 
         screen = QtWidgets.QApplication.primaryScreen().geometry()
         x = (screen.width() - self.width()) // 2
