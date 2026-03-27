@@ -24,9 +24,29 @@ class MainWindow(QtWidgets.QMainWindow):
         self.setCentralWidget(central)
         layout = QtWidgets.QVBoxLayout(central)
 
+        top_layout = QtWidgets.QHBoxLayout()
+
+        self.logo_label = QtWidgets.QLabel()
+        self.logo_label.setScaledContents(True)
+
+        logo_path = r"W:\pract\day3-day5\app\icon\fotoygol.png"
+        if os.path.exists(logo_path):
+            pixmap = QtGui.QPixmap(logo_path)
+            self.logo_label.setPixmap(
+                pixmap.scaled(100, 100, QtCore.Qt.KeepAspectRatio, QtCore.Qt.SmoothTransformation))
+
+        tabs_container = QtWidgets.QWidget()
+        tabs_layout = QtWidgets.QVBoxLayout(tabs_container)
+        tabs_layout.setContentsMargins(0, 0, 0, 0)
+
         self.tabs = QtWidgets.QTabWidget()
         self.tabs.currentChanged.connect(self.on_tab_changed)
-        layout.addWidget(self.tabs)
+        tabs_layout.addWidget(self.tabs)
+
+        top_layout.addWidget(tabs_container, 1)
+        top_layout.addWidget(self.logo_label, 0)
+
+        layout.addLayout(top_layout)
 
         self.tab1 = QtWidgets.QWidget()
         self.tab2 = QtWidgets.QWidget()
