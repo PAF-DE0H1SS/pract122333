@@ -4,13 +4,14 @@ import sys
 import sqlite3
 import subprocess
 import os
+import shutil
 from PyQt5 import QtWidgets, QtCore, QtGui
 
 
 class MainWindow(QtWidgets.QMainWindow):
     def __init__(self):
         super().__init__()
-        self.db_path = r"/day3-day5\db\prackt.db"
+        self.db_path = r"W:\pract\day3-day5\db\prackt.db"
         self.current_table = "furniture"
         self.setWindowTitle("12 СТУЛЬЕВ")
         self.setGeometry(100, 100, 900, 500)
@@ -42,9 +43,25 @@ class MainWindow(QtWidgets.QMainWindow):
         menu = self.menuBar()
         menu.addAction("Выход", self.close)
 
+        self.ensure_photo_columns()
+
         self.load_furniture()
         self.load_orders()
         self.load_clients()
+
+    def ensure_photo_columns(self):
+        try:
+            conn = sqlite3.connect(self.db_path)
+            cur = conn.cursor()
+            for table in ["furniture", "orders", "clients"]:
+                cur.execute(f"PRAGMA table_info({table})")
+                columns = [col[1] for col in cur.fetchall()]
+                if "photo_path" not in columns:
+                    cur.execute(f"ALTER TABLE {table} ADD COLUMN photo_path TEXT")
+            conn.commit()
+            conn.close()
+        except Exception as e:
+            QtWidgets.QMessageBox.critical(self, "Ошибка", str(e))
 
     def on_tab_changed(self, index):
         if index == 0:
@@ -70,9 +87,9 @@ class MainWindow(QtWidgets.QMainWindow):
         vbox.addLayout(hbox)
 
         self.table1 = QtWidgets.QTableWidget()
-        self.table1.setColumnCount(8)
+        self.table1.setColumnCount(9)
         self.table1.setHorizontalHeaderLabels(
-            ["Код", "Название", "Тип", "Страна", "Кол-во", "Материал", "Цвет", "Цена"])
+            ["Фото", "Код", "Название", "Тип", "Страна", "Кол-во", "Материал", "Цвет", "Цена"])
         vbox.addWidget(self.table1)
 
         hbox2 = QtWidgets.QHBoxLayout()
@@ -94,8 +111,8 @@ class MainWindow(QtWidgets.QMainWindow):
         vbox = QtWidgets.QVBoxLayout(self.tab2)
 
         self.table2 = QtWidgets.QTableWidget()
-        self.table2.setColumnCount(7)
-        self.table2.setHorizontalHeaderLabels(["№", "Клиент", "Товар", "Дата", "Скидка", "Цена", "Страна"])
+        self.table2.setColumnCount(8)
+        self.table2.setHorizontalHeaderLabels(["Фото", "№", "Клиент", "Товар", "Дата", "Скидка", "Цена", "Страна"])
         vbox.addWidget(self.table2)
 
         hbox = QtWidgets.QHBoxLayout()
@@ -117,8 +134,8 @@ class MainWindow(QtWidgets.QMainWindow):
         vbox = QtWidgets.QVBoxLayout(self.tab3)
 
         self.table3 = QtWidgets.QTableWidget()
-        self.table3.setColumnCount(6)
-        self.table3.setHorizontalHeaderLabels(["ID", "Фамилия", "Имя", "Отчество", "Адрес", "Город"])
+        self.table3.setColumnCount(7)
+        self.table3.setHorizontalHeaderLabels(["Фото", "ID", "Фамилия", "Имя", "Отчество", "Адрес", "Город"])
         vbox.addWidget(self.table3)
 
         hbox = QtWidgets.QHBoxLayout()
@@ -141,7 +158,7 @@ class MainWindow(QtWidgets.QMainWindow):
             conn = sqlite3.connect(self.db_path)
             cur = conn.cursor()
 
-            sql = "SELECT product_code, name, type, country, items_count, material, color, price FROM furniture"
+            sql = "SELECT product_code, name, type, country, items_count, material, color, price, photo_path FROM furniture"
             params = []
 
             if self.search.text():
@@ -161,11 +178,15 @@ class MainWindow(QtWidgets.QMainWindow):
 
             self.table1.setRowCount(len(data))
             for i, row in enumerate(data):
-                for j, val in enumerate(row):
+                btn = QtWidgets.QPushButton()
+                self.setup_photo_button(btn, row[0], "furniture", row[-1])
+                self.table1.setCellWidget(i, 0, btn)
+
+                for j, val in enumerate(row[:-1]):
                     if j == 7:
-                        self.table1.setItem(i, j, QtWidgets.QTableWidgetItem(f"{val} руб"))
+                        self.table1.setItem(i, j + 1, QtWidgets.QTableWidgetItem(f"{val} руб"))
                     else:
-                        self.table1.setItem(i, j, QtWidgets.QTableWidgetItem(str(val)))
+                        self.table1.setItem(i, j + 1, QtWidgets.QTableWidgetItem(str(val)))
         except Exception as e:
             QtWidgets.QMessageBox.critical(self, "Ошибка", str(e))
 
@@ -180,7 +201,8 @@ class MainWindow(QtWidgets.QMainWindow):
                                o.order_date,
                                o.discount_percent,
                                ROUND(f.price * (100 - o.discount_percent) / 100, 2),
-                               f.country
+                               f.country,
+                               o.photo_path
                         FROM orders o
                                  JOIN clients c ON o.client_id = c.client_id
                                  JOIN furniture f ON o.product_code = f.product_code
@@ -190,13 +212,17 @@ class MainWindow(QtWidgets.QMainWindow):
 
             self.table2.setRowCount(len(data))
             for i, row in enumerate(data):
-                for j, val in enumerate(row):
+                btn = QtWidgets.QPushButton()
+                self.setup_photo_button(btn, row[0], "orders", row[-1])
+                self.table2.setCellWidget(i, 0, btn)
+
+                for j, val in enumerate(row[:-1]):
                     if j == 4:
-                        self.table2.setItem(i, j, QtWidgets.QTableWidgetItem(f"{val}%"))
+                        self.table2.setItem(i, j + 1, QtWidgets.QTableWidgetItem(f"{val}%"))
                     elif j == 5:
-                        self.table2.setItem(i, j, QtWidgets.QTableWidgetItem(f"{val} руб"))
+                        self.table2.setItem(i, j + 1, QtWidgets.QTableWidgetItem(f"{val} руб"))
                     else:
-                        self.table2.setItem(i, j, QtWidgets.QTableWidgetItem(str(val)))
+                        self.table2.setItem(i, j + 1, QtWidgets.QTableWidgetItem(str(val)))
         except Exception as e:
             QtWidgets.QMessageBox.critical(self, "Ошибка", str(e))
 
@@ -204,21 +230,122 @@ class MainWindow(QtWidgets.QMainWindow):
         try:
             conn = sqlite3.connect(self.db_path)
             cur = conn.cursor()
-            cur.execute("SELECT client_id, last_name, first_name, middle_name, address, city FROM clients")
+            cur.execute("SELECT client_id, last_name, first_name, middle_name, address, city, photo_path FROM clients")
             data = cur.fetchall()
             conn.close()
 
             self.table3.setRowCount(len(data))
             for i, row in enumerate(data):
-                for j, val in enumerate(row):
-                    self.table3.setItem(i, j, QtWidgets.QTableWidgetItem(str(val if val else "")))
+                btn = QtWidgets.QPushButton()
+                self.setup_photo_button(btn, row[0], "clients", row[-1])
+                self.table3.setCellWidget(i, 0, btn)
+
+                for j, val in enumerate(row[:-1]):
+                    self.table3.setItem(i, j + 1, QtWidgets.QTableWidgetItem(str(val if val else "")))
         except Exception as e:
             QtWidgets.QMessageBox.critical(self, "Ошибка", str(e))
+
+    def setup_photo_button(self, button, record_id, table, photo_path):
+        placeholder = r"W:\pract\day3-day5\app\icon\fotozag.png"
+        if photo_path and os.path.exists(photo_path):
+            pixmap = QtGui.QPixmap(photo_path)
+            if not pixmap.isNull():
+                icon = QtGui.QIcon(pixmap.scaled(64, 64, QtCore.Qt.KeepAspectRatio))
+                button.setIcon(icon)
+                button.setIconSize(QtCore.QSize(64, 64))
+                button.setText("")
+            else:
+                button.setIcon(QtGui.QIcon(placeholder))
+                button.setIconSize(QtCore.QSize(64, 64))
+                button.setText("Фото")
+        else:
+            button.setIcon(QtGui.QIcon(placeholder))
+            button.setIconSize(QtCore.QSize(64, 64))
+            button.setText("")
+
+        def on_click():
+            if photo_path and os.path.exists(photo_path):
+                reply = QtWidgets.QMessageBox.question(
+                    self, "Фото",
+                    "Выберите действие:\nДа - заменить фото\nНет - удалить фото",
+                    QtWidgets.QMessageBox.Yes | QtWidgets.QMessageBox.No | QtWidgets.QMessageBox.Cancel
+                )
+                if reply == QtWidgets.QMessageBox.Yes:
+                    self.add_or_replace_photo(record_id, table)
+                elif reply == QtWidgets.QMessageBox.No:
+                    self.remove_photo(record_id, table)
+            else:
+                self.add_or_replace_photo(record_id, table)
+
+        button.clicked.connect(on_click)
+
+    def add_or_replace_photo(self, record_id, table):
+        file_path, _ = QtWidgets.QFileDialog.getOpenFileName(
+            self, "Выберите фото", "",
+            "Изображения (*.png *.jpg *.jpeg *.bmp *.gif)"
+        )
+        if not file_path:
+            return
+
+        dest_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "photos")
+        if not os.path.exists(dest_dir):
+            os.makedirs(dest_dir)
+        ext = os.path.splitext(file_path)[1]
+        new_name = f"{table}_{record_id}{ext}"
+        dest_path = os.path.join(dest_dir, new_name)
+        try:
+            shutil.copy2(file_path, dest_path)
+        except Exception as e:
+            QtWidgets.QMessageBox.critical(self, "Ошибка", f"Не удалось скопировать фото: {e}")
+            return
+
+        try:
+            conn = sqlite3.connect(self.db_path)
+            cur = conn.cursor()
+            cur.execute(f"UPDATE {table} SET photo_path = ? WHERE {self.get_id_field(table)} = ?",
+                        (dest_path, record_id))
+            conn.commit()
+            conn.close()
+            self.refresh_current_tab()
+        except Exception as e:
+            QtWidgets.QMessageBox.critical(self, "Ошибка", str(e))
+
+    def remove_photo(self, record_id, table):
+        try:
+            conn = sqlite3.connect(self.db_path)
+            cur = conn.cursor()
+            cur.execute(f"SELECT photo_path FROM {table} WHERE {self.get_id_field(table)} = ?", (record_id,))
+            row = cur.fetchone()
+            if row and row[0] and os.path.exists(row[0]):
+                os.remove(row[0])
+            cur.execute(f"UPDATE {table} SET photo_path = NULL WHERE {self.get_id_field(table)} = ?", (record_id,))
+            conn.commit()
+            conn.close()
+            self.refresh_current_tab()
+        except Exception as e:
+            QtWidgets.QMessageBox.critical(self, "Ошибка", str(e))
+
+    def get_id_field(self, table):
+        if table == "furniture":
+            return "product_code"
+        elif table == "orders":
+            return "order_id"
+        else:
+            return "client_id"
+
+    def refresh_current_tab(self):
+        index = self.tabs.currentIndex()
+        if index == 0:
+            self.load_furniture()
+        elif index == 1:
+            self.load_orders()
+        else:
+            self.load_clients()
 
     def get_selected_id(self, table):
         row = table.currentRow()
         if row >= 0:
-            return table.item(row, 0).text()
+            return table.item(row, 1).text()
         return None
 
     def add_furniture(self):
@@ -246,7 +373,7 @@ class MainWindow(QtWidgets.QMainWindow):
     def delete_furniture(self):
         row = self.table1.currentRow()
         if row >= 0:
-            code = self.table1.item(row, 0).text()
+            code = self.table1.item(row, 1).text()
             if QtWidgets.QMessageBox.question(self, "Удалить", "Удалить?") == QtWidgets.QMessageBox.Yes:
                 try:
                     conn = sqlite3.connect(self.db_path)
@@ -332,7 +459,7 @@ class MainWindow(QtWidgets.QMainWindow):
     def delete_order(self):
         row = self.table2.currentRow()
         if row >= 0:
-            oid = self.table2.item(row, 0).text()
+            oid = self.table2.item(row, 1).text()
             if QtWidgets.QMessageBox.question(self, "Удалить", "Удалить?") == QtWidgets.QMessageBox.Yes:
                 try:
                     conn = sqlite3.connect(self.db_path)
@@ -396,7 +523,7 @@ class MainWindow(QtWidgets.QMainWindow):
     def delete_client(self):
         row = self.table3.currentRow()
         if row >= 0:
-            cid = self.table3.item(row, 0).text()
+            cid = self.table3.item(row, 1).text()
             if QtWidgets.QMessageBox.question(self, "Удалить", "Удалить?") == QtWidgets.QMessageBox.Yes:
                 try:
                     conn = sqlite3.connect(self.db_path)
