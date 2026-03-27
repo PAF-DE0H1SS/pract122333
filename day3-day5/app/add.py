@@ -2,7 +2,8 @@
 
 import sys
 import sqlite3
-from PyQt5 import QtWidgets
+import os
+from PyQt5 import QtWidgets, QtGui
 
 
 class AddDialog(QtWidgets.QDialog):
@@ -11,6 +12,10 @@ class AddDialog(QtWidgets.QDialog):
         self.db_path = r"W:\pract\day3-day5\db\prackt.db"
         self.setWindowTitle("Добавить мебель")
         self.setFixedSize(350, 400)
+
+        icon_path = r"W:\pract\day3-day5\app\icon\icon.png"
+        if os.path.exists(icon_path):
+            self.setWindowIcon(QtGui.QIcon(icon_path))
 
         layout = QtWidgets.QFormLayout(self)
 
