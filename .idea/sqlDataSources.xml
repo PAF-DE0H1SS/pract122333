@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDataSourceStorage">
+    <option name="dataSources">
+      <list>
+        <State>
+          <option name="id" value="9bc21cb0-c387-4362-ae4e-1a38d3e79479" />
+          <option name="name" value="zapros2" />
+          <option name="dbmsName" value="SQLITE" />
+          <option name="urls">
+            <array>
+              <option value="file://$PROJECT_DIR$/day3-day5/db/zapros2.sql" />
+              <option value="file://$PROJECT_DIR$/day3-day5/db/zapros3.sql" />
+              <option value="file://$PROJECT_DIR$/day3-day5/db/zapros4.sql" />
+              <option value="file://$PROJECT_DIR$/day3-day5/db/zapros5.sql" />
+              <option value="file://$PROJECT_DIR$/day3-day5/db/zapros6.sql" />
+              <option value="file://$PROJECT_DIR$/day3-day5/db/zapros7.sql" />
+              <option value="file://$PROJECT_DIR$/day3-day5/db/zapros8.sql" />
+              <option value="file://$PROJECT_DIR$/day3-day5/db/zapros9.sql" />
+              <option value="file://$PROJECT_DIR$/day3-day5/db/zapros10.sql" />
+            </array>
+          </option>
+          <option name="outLayout" value="File per object by schema.groovy" />
+        </State>
+      </list>
+    </option>
+  </component>
+</project>
