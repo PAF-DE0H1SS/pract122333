@@ -4,7 +4,7 @@ import sys
 import sqlite3
 import subprocess
 import os
-from PyQt5 import QtWidgets, QtCore
+from PyQt5 import QtWidgets, QtCore, QtGui
 
 
 class MainWindow(QtWidgets.QMainWindow):
@@ -14,6 +14,10 @@ class MainWindow(QtWidgets.QMainWindow):
         self.current_table = "furniture"
         self.setWindowTitle("12 СТУЛЬЕВ")
         self.setGeometry(100, 100, 900, 500)
+
+        icon_path = r"W:\pract\day3-day5\app\icon\icon.png"
+        if os.path.exists(icon_path):
+            self.setWindowIcon(QtGui.QIcon(icon_path))
 
         central = QtWidgets.QWidget()
         self.setCentralWidget(central)
